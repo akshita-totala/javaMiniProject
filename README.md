@@ -267,7 +267,8 @@ public class Main {
 		String theatreNames [] = {"INOX", "Mukta Theatres", "City Pride", "AURUM"};
   //YE
   
-		String movieNames [] = {"Harry Potter and the Philosopher's Stone","","",.....};
+		String movieNames [] = {"Harry Potter and the Philosopher's Stone","Dilwale Dulhania Le Jayenge","1920 London","Kong: Skull Island","Twilight","The Matrix","Bahubali: The 
+ Beginning","Joker","Tenet","Godzilla","Dune"};
 		for(int i = 0; i < 4; ++i) {
 			theatres[i] = new Theatres(theatreNames[i],bigData[i]);
 		}
