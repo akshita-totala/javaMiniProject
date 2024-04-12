@@ -62,7 +62,7 @@ class Theatres{
 
 		String [] dataOnThatDay = data[index];
 
-		System.out.println("The Movies Available on " + dataOnThatDay[0] + " in " + name + " are:");
+		System.out.println("Movie Screenings on " + dataOnThatDay[0] + " in " + name + " are:");
 
 		for(int i = 1; i < 5 ; ++i) {
 			System.out.println(i + ". " + dataOnThatDay[i]);
@@ -267,8 +267,8 @@ public class Main {
 		String theatreNames [] = {"INOX", "Mukta Theatres", "City Pride", "AURUM"};
   //YE
   
-		String movieNames [] = {"Harry Potter and the Philosopher's Stone","Dilwale Dulhania Le Jayenge","1920 London","Kong: Skull Island","Twilight","The Matrix","Bahubali: The 
- Beginning","Joker","Tenet","Godzilla","Dune"};
+		String movieNames [] = {"Harry Potter and the Philosopher's Stone","Dilwale Dulhania Le Jayenge","1920 London",
+  "Kong: Skull Island","Twilight","The Matrix","Bahubali: The Beginning","Joker","Tenet","Godzilla","Dune"};
 		for(int i = 0; i < 4; ++i) {
 			theatres[i] = new Theatres(theatreNames[i],bigData[i]);
 		}
@@ -293,26 +293,31 @@ public class Main {
 
 
 
-		System.out.println("\nMovie Screenings on "+bigData[theatreChoice-1][dateChoice-1][0]+"at"+theatreNames[theatreChoice-1]+":");
+//		System.out.println("\nMovie Screenings on "+bigData[theatreChoice-1][dateChoice-1][0]+" at "+theatreNames[theatreChoice-1]+":");
 
 		theatres[theatreChoice - 1].displayTheatreMDetails(dateChoice - 1);
-
-		System.out.print("What are you Watching then?\n Enter your Choice: ");
-
 		sc.nextLine();
+		boolean flag=false;
+		do {
+			System.out.println("\nWhat are you Watching then?");
+			System.out.print("Type in your Choice: ");
 
-		String movieChoiceS = sc.nextLine();
-  
-		for(int k=0;k<11;k++){
-  			if(movieNames[k].equals(movieChoiceS)){
-     				movieChoice=k+1;
-	 			break;
-     			}
-		}
-  
+			String movieChoiceS = sc.nextLine();
+
+			for(int k=0;k<11;k++){
+				if(movieNames[k].equals(movieChoiceS)){
+					movieChoice=k+1;
+					flag=true;
+					break;
+				}
+			}
+			if(!flag) {
+				System.out.println("Incorrect Movie Name entered! Try Again!");
+			}
+		}while(!flag);
 		System.out.println("\nEnter '1' to view Movie Details.\nElse, Enter 0.");
 
-		System.out.print("Enter your Choice: ");
+		System.out.print("Your Choice: ");
 		int tempChoice=sc.nextInt();
 
 		//The following code will be executed on demand for movie details.. create an obj of the movie details class 
@@ -333,27 +338,25 @@ public class Main {
 
 		//Here comes the code for seats followed by (continued booking / final billing)
 		//Here comes the code for continued booking i.e.,  final billing
-
-	}
  	//Akshita's Part:-
- 	Scanner scanner = new Scanner(System.in);
+ 	//Scanner scanner = new Scanner(System.in);
 		 int ch;
 		 int numrows = 8; 
 	     int numcols = 10; 
 		 gold goldSeating = new gold(numrows, numcols);
 		 silver silverSeating = new silver(numrows, numcols);
 		 bronze BronzeSeating = new bronze(numrows, numcols);
-		 System.out.println("Enter Number of seats you want to book");
-		 int no=scanner.nextInt();
+		 System.out.print("Enter Number of seats you want to book:");
+		 int no=sc.nextInt();
 		 for(int i=0;i<no;i++) {
 			 
 		 
 	     System.out.println("Which Zone would you like to book a seat in");
 	     System.out.println("1.Gold( Rows 1-2, Col:1-10)\n2.Silver(Rows 3-5, Col:1-10)\n3.Bronze(Rows 6-8, Col:1-10)\n");
-	     ch=scanner.nextInt();
+	     ch=sc.nextInt();
 	     System.out.println("Give row and column:");
-	     int n=scanner.nextInt();
-	     int c=scanner.nextInt();
+	     int n=sc.nextInt();
+	     int c=sc.nextInt();
 	     
 	     
 	     switch(ch) {
