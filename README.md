@@ -79,63 +79,61 @@ public class Main {
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
-
+		int movieChoice=0;
 		String [][][] bigData = 
 			{
 					{
-						{"1.1.24", "HarryPotter", "DDLJ", "1920London", "Kong"},
+						{"1.1.24", "Harry Potter and the Philosopher's Stone", "Dilwale Dulhania Le Jayenge", "1920 London", "Kong: Skull Island"},
 
-						{"2.1.24", "Twilight", "HarryPotter", "Kong", "Matrix"},
+						{"2.1.24", "Twilight", "Harry Potter and the Philosopher's Stone", "Kong: Skull Island", "The Matrix"},
 
-						{"3.1.24", "Bahubali", "Joker", "Kong", "Bahubali"},
+						{"3.1.24", "The Matrix", "Joker", "Kong: Skull Island", "Bahubali: The Beginning"},
 
-						{"4.1.24", "Tenet", "Godzilla", "Bahubali", "1920London"}
+						{"4.1.24", "Tenet", "Godzilla", "Bahubali: The Beginning", "1920 London"}
 					},
 
 					{
-						{"1.1.24", "Tenet", "Joker", "Bahubali", "Matrix"},
+						{"1.1.24", "Tenet", "Joker", "Bahubali: The Beginning", "The Matrix"},
 
-						{"2.1.24", "1920London", "DDLJ", "Bahubali", "Matrix"},
+						{"2.1.24", "1920 London", "Dilwale Dulhania Le Jayenge", "Bahubali: The Beginning", "The Matrix"},
 
-						{"3.1.24", "DDLJ", "Tenet", "HarryPotter", "Joker"},
+						{"3.1.24", "Dilwale Dulhania Le Jayenge", "Tenet", "Harry Potter and the Philosopher's Stone", "Joker"},
 
-						{"4.1.24", "Matrix", "DDLJ", "Bahubali", "DDLJ"},
+						{"4.1.24", "The Matrix", "Dilwale Dulhania Le Jayenge", "Bahubali: The Beginning", "Kong: Skull Island"},
 
 					},
 
 					{
-						{"1.1.24", "Matrix", "Joker", "Matrix", "Tenet"},
+						{"1.1.24", "The Matrix", "Joker", "Bahubali: The Beginning", "Tenet"},
 
-						{"2.1.24",  "Tenet", "Dune", "1920London", "Tenet"},
+						{"2.1.24",  "Tenet", "Dune", "1920 London", "Dilwale Dulhania Le Jayenge"},
 
-						{"3.1.24", "Matrix", "Godzilla", "Bahubali", "Kong"},
+						{"3.1.24", "The Matrix", "Godzilla", "Bahubali: The Beginning", "Kong: Skull Island"},
 
-						{"4.1.24", "Dune", "Bahubali", "Joker", "Tenet"},
+						{"4.1.24", "Dune", "Bahubali: The Beginning", "Joker", "Tenet"},
 				
 					},
 
 					{
-						{"1.1.24", "Matrix", "DDLJ", "HarryPotter", "Twilight"},
+						{"1.1.24", "The Matrix", "DDLJ", "HarryPotter", "Twilight"},
 
-						{"2.1.24" ,"Tenet", "DDLJ", "Matrix", "1920London"},
+						{"2.1.24" ,"Tenet", "DDLJ", "The Matrix", "1920 London"},
 
 						{"3.1.24", "Tenet", "Twilight", "DDLJ", "Joker"},
 
-						{"4.1.24", "Bahubali", "Godzilla", "Twilight", "Kong"}
+						{"4.1.24", "Bahubali: The Beginning", "Godzilla", "Twilight", "Kong: Skull Island"}
 					}
 
 			};
 
 		String [] Slots = {"9:00am to 12:00pm","12:30pm to 3:30pm","4:00pm to 7:00pm","8:00pm to 11:00pm"};
 
-		//AADITI YOU HAVE TO INSERT DATA HERE!!..in pace of these already existing movies.. insert the new movies ka details!!
-
 		 Movie[] movies = {
             new Movie("Harry Potter and the Philosopher's Stone", "Chris Columbus", 200,
                 new String[]{"Daniel Radcliffe", "Rupert Grint", "Emma Watson","Alan Rickman"," Maggie Smith"},
                 new String[]{"Harry Potter", "Ron Weasley", "Hermione Granger"," Severus Snape ","Minerva McGonagall "},
                 9.0, " Fantasy, Adventure"),
-            new Movie("Dilwale Dulhania Le Jayenge ", "Aditya Chopra", 250,
+            new Movie("Dilwale Dulhania Le Jayenge", "Aditya Chopra", 250,
                 new String[]{"Shah Rukh Khan ", "Kajol", "Amrish Puri","Farida Jalal ","Anupam Kher "},
                 new String[]{"Raj Malhotra", "Simran Singh", "Chaudhry Baldev Singh"," Lajwanti Lajjo Singh","Dharamvir Malhotra "},
                 9.4, " Romance, Drama"),
@@ -155,23 +153,23 @@ public class Main {
                 new String[]{"Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss","Hugo Weaving ","Joe Pantoliano ","Gloria Foster "},
                 new String[]{"Thomas Neo Anderson", "Morpheus", "Trinity","Agent Smith ","Cypher ","The Oracle "},
                 8.7, "Science Fiction, Action"),
-            new Movie("Baahubali: The Beginning", "S.S. Rajamouli", 193,
+            new Movie("Bahubali: The Beginning", "S.S. Rajamouli", 193,
                 new String[]{"Prabhas ", "Rana Daggubati", "Anushka Shetty","Tamannaah ","Ramya Krishna "," Sathyaraj"},
                 new String[]{"Amarendra Baahubali and Mahendra Baahubali", "Bhallaladeva", "Maharani Devasena","Avanthika ","Sivagami Devi "," Kattappa"},
                 8.0, "Epic Historical Fiction, Action"),
-		new Movie("Joker", "Todd Phillips", 210,
+	    new Movie("Joker", "Todd Phillips", 210,
                 new String[]{"Joaquin Phoenix ", "Robert De Niro ", "Zazie Beetz","Frances Conroy ","Brett Cullen "," Shea Whigham"},
                 new String[]{"Arthur Fleck / Joker", "Murray Franklin", "Sophie Dumond","Penny Fleck ","Thomas Wayne "," Detective Burke"},
                6.0, "Psychological Thriller, Drama"),
-		new Movie("Tenet", " Christopher Nolan", 180,
+	    new Movie("Tenet", " Christopher Nolan", 180,
                 new String[]{"John David Washington  ", "Robert Pattinson", "Elizabeth Debicki ","Kenneth Branagh ","Michael Caine "," Aaron Taylor-Johnson"},
                 new String[]{"The Protagonist", "Neil", "Kat", "Andrei Sator ","Sir Michael Crosby ","  Ives"},
                 7.0, "Action, Sci-Fi, Thriller"),
-		new Movie("Godzilla", "Gareth Edwards", 120,
+	    new Movie("Godzilla", "Gareth Edwards", 120,
                 new String[]{"Aaron Taylor-Johnson ", "Bryan Cranston", "Ken Watanabe","Elizabeth Olsen","Sally Hawkins  "},
                 new String[]{"Ford Brody", "Joe Brody", "Dr. Ishiro Serizawa"," Elle Brody "," Dr. Vivienne Graham "},
                 7.3, "Action, Science Fiction"),
-		new Movie("Dune", "Denis Villeneuve", 190,
+	    new Movie("Dune", "Denis Villeneuve", 190,
                 new String[]{"Timothée Chalamet ", "Rebecca Ferguson", "Oscar Isaac","Josh Brolin","Stellan Skarsgård","Dave Bautista ","Zendaya"},
                 new String[]{" Paul Atreides", "Lady Jessica", "Duke Leto Atreides"," Gurney Halleck "," Baron Vladimir Harkonnen "," Glossu Rabban ","Chani "},
                 9.4, " Science Fiction, Adventure"),
@@ -179,9 +177,11 @@ public class Main {
         };
 
 		Theatres  theatres [] = new Theatres[4];
-
+		
 		String theatreNames [] = {"INOX", "Mukta Theatres", "City Pride", "AURUM"};
-
+  //YE
+  
+		String movieNames [] = {"Harry Potter and the Philosopher's Stone","","",.....};
 		for(int i = 0; i < 4; ++i) {
 			theatres[i] = new Theatres(theatreNames[i],bigData[i]);
 		}
@@ -214,10 +214,15 @@ public class Main {
 
 		sc.nextLine();
 
-		String movieChoice = sc.nextLine();
-
-
-
+		String movieChoiceS = sc.nextLine();
+  
+		for(int k=0;k<11;k++){
+  			if(movieNames[k].equals(movieChoiceS)){
+     				movieChoice=k+1;
+	 			break;
+     			}
+		}
+  
 		System.out.println("\nEnter '1' to view Movie Details.\nElse, Enter 0.");
 
 		System.out.print("Enter your Choice: ");
@@ -228,16 +233,12 @@ public class Main {
 		//and call it with the given parameter
 
 		if(tempChoice==1) {
-
-			//AADITI KA PART
-
-			//	movieobj.displayMovieDettais(movieChoice);
-
+			movies[movieChoice-1].displayMovieDetails();
 		}
 
-		System.out.println("Slots Available are:");
+		System.out.println("\nSlots Available are:");
 
-		for(int i = 0; i < 4; ++i) System.out.println((i + 1) + ": " + Slots[i]);
+		for(int i = 0; i < 4; i++) System.out.println((i + 1) + ": " + Slots[i]);
 
 		System.out.print("Choose a Slot: ");
 
