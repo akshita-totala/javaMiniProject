@@ -1,4 +1,5 @@
-# javaMiniProject
+package JavaMinproject.java;
+
 import java.util.Scanner;
 
 class Movie {
@@ -23,12 +24,12 @@ class Movie {
     public void displayMovieDetails() {
         System.out.println("Movie: " + title);
         System.out.println("Directed by: " + director);
-        System.out.println("Duration: " + duration + " mins");
+        System.out.println("Duration: " + (duration/60)+"hrs "+(duration%60) + " mins");
         System.out.print("Actors and Roles: ");
         for (int i = 0; i < actors.length; i++) {
             System.out.print(actors[i] + " as " + roles[i]);
             if (i < actors.length - 1) {
-                System.out.print(", ");
+                System.out.println("\t");
             }
         }
         System.out.println();
@@ -37,34 +38,91 @@ class Movie {
     }
 }
 
-class Theater {
-    String name;
-    String location;
+class Theatres{
 
-    Theater(String name, String location) {
-        this.name = name;
-        this.location = location;
-    }
+	String name;
 
-    void displayMovieDetails(Movie movie) {
-        System.out.println("Movie details for " + movie.title + " at " + this.name + ", " + this.location + ":");
-        movie.displayMovieDetails();
-    }
+	String [] data = new String[4];
+
+
+
+	Theatres(String name, String [] data){
+
+		this.name=name;
+
+		for(int i = 0; i < 4; i++)
+
+			this.data[i] = data[i];
+
+	}
+
+
+
+	void displayTheatreMDetails(int index){
+
+		String [] dataOnThatDay = data[index].split(" ");
+
+		System.out.println("The Movies Available on " + dataOnThatDay[0] + " in " + name + " are:");
+
+		for(int i = 1; i < 5 ; ++i) System.out.println(i + ". " + dataOnThatDay[i]);
+
+	}
+
 }
 
-public class MovieBookingSystem {
-    public static void main(String[] args) {
-        Theater[] theaters = {
-            new Theater("Theater-1", "Karvenagar"),
-            new Theater("Theater-2", "Chandini Chowk"),
-            new Theater("Theater-3", "Pavelion Mall"),
-            new Theater("Theater-4", "Amanora Mall"),
-            new Theater("Theater-5", "JVA Mall"),
-            new Theater("Theater-6", "Shivajinagar"),
-            new Theater("Theater-7", "Phoenix")
-        };
 
-        Movie[] movies = {
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		String [][] bigData = {{"1.1.24 HarryPotter DDLJ 1920London Kong",
+
+			"2.1.24 Twilight HarryPotter Kong Matrix",
+
+			"3.1.24 Bahubali Joker Kong Bahubali",
+
+			"4.1.24 Tenet Godzilla Bahubali 1920London",
+
+		},
+
+		{"1.1.24 Tenet Joker Bahubali Matrix",
+
+			"2.1.24 1920London DDLJ Bahubali Matrix",
+
+			"3.1.24 DDLJ Tenet HarryPotter Joker",
+
+			"4.1.24 Matrix DDLJ Bahubali DDLJ",
+
+		},
+
+		{"1.1.24 Matrix Joker Matrix Tenet",
+
+			"2.1.24  Tenet 19Dune20London Tenet",
+
+			"3.1.24 Matrix Godzilla Bahubali Kong",
+
+			"4.1.24 Dune Bahubali Joker Tenet",
+
+		},
+
+		{"1.1.24 Matrix DDLJ HarryPotter Twilight",
+
+			"2.1.24 Tenet DDLJ Matrix 1920London",
+
+			"3.1.24 Tenet Twilight DDLJ Joker",
+
+			"4.1.24 Bahubali Godzilla Twilight Kong",
+
+		}};
+
+	    String [] Slots = {"9:00am to 12:00pm","12:30pm to 3:30pm","4:00pm to 7:00pm","8:00pm to 11:00pm"};
+     
+//AADITI YOU HAVE TO INSERT DATA HERE!!..in pace of these already existing movies.. insert the new movies ka details!!
+
+		 Movie[] movies = {
             new Movie("3 Idiots", "Rajkumar Hirani", 170,
                 new String[]{"Aamir Khan", "Kareena Kapoor", "R. Madhavan"},
                 new String[]{"Rancho", "Pia", "Farhan"},
@@ -95,49 +153,72 @@ public class MovieBookingSystem {
                 6.1, "Drama, Romance"),
         };
 
- 
-        Scanner scanner = new Scanner(System.in);
-        int choice;
-        do {
-            System.out.println("1. Display movie details");
-            System.out.println("0. Exit");
-            System.out.print("Enter your choice: ");
-            choice = scanner.nextInt();
 
-            switch (choice) {
-                case 1:
-                    displayMovieDetails(scanner, theaters, movies);
-                    break;
-                case 0:
-                    System.out.println("Exiting...");
-                    break;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-            }
-        } while (choice != 0);
-    }
+		Theatres  theatres [] = new Theatres[4];
 
-    public static void displayMovieDetails(Scanner scanner, Theater[] theaters, Movie[] movies) {
-        System.out.println("Select a theater:");
-        for (int i = 0; i < theaters.length; i++) {
-            System.out.println((i + 1) + ". " + theaters[i].name);
-        }
-        System.out.print("Enter theater choice: ");
-        int theaterChoice = scanner.nextInt();
-        if (theaterChoice >= 1 && theaterChoice <= theaters.length) {
-            System.out.println("Select a movie:");
-            for (int i = 0; i < movies.length; i++) {
-                System.out.println((i + 1) + ". " + movies[i].title);
-            }
-            System.out.print("Enter movie choice: ");
-            int movieChoice = scanner.nextInt();
-            if (movieChoice >= 1 && movieChoice <= movies.length) {
-                theaters[theaterChoice - 1].displayMovieDetails(movies[movieChoice - 1]);
-            } else {
-                System.out.println("Invalid movie choice.");
-            }
-        } else {
-            System.out.println("Invalid theater choice.");
-        }
+		String theatreNames [] = {"INOX", "Mukta Theatres", "City Pride", "AURUM"};
+
+		for(int i = 0; i < 4; ++i) {
+			theatres[i] = new Theatres(theatreNames[i],bigData[i]);
+		}
+
+		System.out.println("Theatres at your service:");
+
+		for(int i = 0; i < 4; ++i) System.out.println((i + 1) + ": " + theatreNames[i]);
+
+		System.out.print("Choose the Theatre you want to book at: ");
+
+		int theatreChoice = sc.nextInt();
+
+
+
+		System.out.println("Available dates for booking:");
+
+		System.out.println("1) 1.1.24\n2) 2.1.24\n3) 3.1.24\n4) 4.1.24");
+
+		System.out.println("Choose a suitable date: ");
+
+		int dateChoice = sc.nextInt();
+
+
+
+		System.out.println("Movie Screenings on the chosen day:");
+
+		theatres[theatreChoice - 1].displayTheatreMDetails(dateChoice - 1);
+
+		System.out.print("What are you Watching then?");
+
+		sc.nextLine();
+
+		String movieChoice = sc.nextLine();
+
+		
+
+		System.out.println("Enter: \n1. Movie Details\n2. Proceed with Booking");
+
+		int tempChoice=sc.nextInt();
+
+		//The following code will be executed on demand for movie details.. create an obj of the movie details class 
+
+		//and call it with the given parameter
+
+		if(tempChoice==1) {
+  
+        //AADITI KA PART
+        
+		//	movieobj.displayMovieDettais(movieChoice);
+
+		}
+
+		System.out.println("Slots Available are:");
+
+		for(int i = 0; i < 4; ++i) System.out.println((i + 1) + ": " + Slots[i]);
+
+		System.out.print("Choose a Slot: ");
+
+		int slotChoice = sc.nextInt();
+
+			//Here comes the code for seats followed by (continued booking / final billing)
+
     }
 }
