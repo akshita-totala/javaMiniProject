@@ -71,7 +71,93 @@ class Theatres{
 	}
 
 }
+//Akshita's Part:-
+abstract class seats{
+	boolean[][] seats;
+	String seatType;
+	public seats(int numrows, int numcol) {
+		// TODO Auto-generated constructor stub
+	}
+	public void seatingarr(int numrows,int numcol){
+		seats = new boolean[numrows][numcol];
+	}
+	void displayseats(){
+		System.out.println("Seating Arrangement");
+		for(int i=0;i< seats.length;i++) {
+			for(int j=0;j<seats[i].length;j++) {
+				if(seats[i][j]) {
+					System.out.println("Booked");
+				}
+				else {
+					System.out.println("Available");
+				}
+			}
+		}
+	}
+	public abstract void bookseat(int row, int col);
+}
+class gold extends seats{
+	public gold(int numrows, int numcol) {
+		super(numrows, numcol);
+		seatingarr(numrows, numcol);
+		seatType="Gold";
+		
+	}
+	public void bookseat(int row, int col) {
+		
+		 
+		 if (seats[row][col]) {
+	            System.out.println("Gold seat already booked. Please select another seat.");
+	        } 
+		 else {
+	            seats[row][col] = true;
+	            System.out.println("Gold seat booked !");
+	        }
+		 if (row < 0 || row >= seats.length || col < 0 || col >= seats[0].length) {
+	            System.out.println("Invalid row or column number. Please try again.");
+	            return;
+	        }
+	}
+}
+class silver extends seats{
+	 public silver(int numRows, int numCols) {
+	        super(numRows, numCols);
+	        seatType = "Silver";
+	    }
+	public void bookseat(int row, int col) {
+		if (row < 0 || row >= seats.length || col < 0 || col >= seats[0].length) {
+            System.out.println("Invalid row or column number. Please try again.");
+            return;
+        }
 
+        if (seats[row][col]) {
+            System.out.println("Silver seat already booked. Please select another seat.");
+        } else {
+            seats[row][col] = true;
+            System.out.println("Silver seat booked!");
+        }
+	}
+}
+class bronze extends seats{
+	 public bronze(int numRows, int numCols) {
+	        super(numRows, numCols);
+	        seatType = "Bronze";
+	    }
+	public void bookseat(int row, int col) {
+		if (row < 0 || row >= seats.length || col < 0 || col >= seats[0].length) {
+         System.out.println("Invalid row or column number. Please try again.");
+         return;
+     }
+
+     if (seats[row][col]) {
+         System.out.println("Bronze seat already booked. Please select another seat.");
+     } else {
+         seats[row][col] = true;
+         System.out.println("Bronze seat booked!");
+     }
+	}
+	
+}
 
 
 public class Main {
@@ -248,4 +334,62 @@ public class Main {
 		//Here comes the code for continued booking i.e.,  final billing
 
 	}
+ 	//Akshita's Part:-
+ 	Scanner scanner = new Scanner(System.in);
+		 int ch;
+		 int numrows = 8; 
+	     int numcols = 10; 
+		 gold goldSeating = new gold(numrows, numcols);
+		 silver silverSeating = new silver(numrows, numcols);
+		 bronze BronzeSeating = new bronze(numrows, numcols);
+		 System.out.println("Enter Number of seats you want to book");
+		 int no=scanner.nextInt();
+		 for(int i=0;i<no;i++) {
+			 
+		 
+	     System.out.println("Which Zone would you like to book a seat in");
+	     System.out.println("1.Gold( Rows 1-2, Col:1-10)\n2.Silver(Rows 3-5, Col:1-10)\n3.Bronze(Rows 6-8, Col:1-10)\n");
+	     ch=scanner.nextInt();
+	     System.out.println("Give row and column:");
+	     int n=scanner.nextInt();
+	     int c=scanner.nextInt();
+	     
+	     
+	     switch(ch) {
+	     case 1:
+	    	 
+		     
+		     System.out.println("Give row and column:");
+		     
+
+		     goldSeating.bookseat(n,c);
+		     //goldSeating.displayseats();
+		     break;
+	     
+		case 2:
+			
+		     
+		     System.out.println("Give row and column:");
+		     
+		     silverSeating.bookseat(n,c);
+		     silverSeating.displayseats();
+		     break;
+	    
+	     case 3:
+	    	
+		     
+		     BronzeSeating.bookseat(numrows,numcols);
+		     BronzeSeating.displayseats();
+		     break;
+	     default:
+	    	 System.out.println("Invalid choice");
+	    	 break;
+	     } 
+		 }
+	    
+	       
+	   
+
+	}
+
 }
