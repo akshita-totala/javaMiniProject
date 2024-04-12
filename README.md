@@ -100,7 +100,7 @@ public class Main {
 
 		{"1.1.24 Matrix Joker Matrix Tenet",
 
-			"2.1.24  Tenet 19Dune20London Tenet",
+			"2.1.24  Tenet Dune 1920London Tenet",
 
 			"3.1.24 Matrix Godzilla Bahubali Kong",
 
