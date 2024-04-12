@@ -397,3 +397,46 @@ public class Main {
 	}
 
 }
+class Billing {
+    private static final double GOLD_PRICE = 550.0;
+    private static final double SILVER_PRICE = 450.0;
+    private static final double BRONZE_PRICE = 350.0;
+
+    public static double calculateTotalCost(String movieName, String seatType, int numSeats) {
+        double seatPrice = 0.0;
+
+        switch (seatType.toLowerCase()) {
+            case "gold":
+                seatPrice = GOLD_PRICE;
+                break;
+            case "silver":
+                seatPrice = SILVER_PRICE;
+                break;
+            case "bronze":
+                seatPrice = BRONZE_PRICE;
+                break;
+            default:
+                System.out.println("Invalid seat type");
+        }
+
+        double subtotal = seatPrice * numSeats;
+        double tax = subtotal * 0.19; // Assuming 19% GST
+        double totalCost = subtotal + tax;
+
+        // Print the bill
+        System.out.println("\n***********************************");
+        System.out.println("************ MOVIE BILL ***********");
+        System.out.println("***********************************\n");
+        System.out.println("Movie: " + movieName);
+        System.out.println("Seat Type: " + seatType);
+        System.out.println("Number of Seats: " + numSeats);
+        System.out.println("-----------------------------------");
+        System.out.println("Subtotal: ₹" + subtotal);
+        System.out.println("Tax (GST 19%): ₹" + tax);
+        System.out.println("Total Cost: ₹" + totalCost);
+        System.out.println("\n***********************************\n");
+
+        return totalCost; // Return total cost including tax
+    }
+}
+
