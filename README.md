@@ -42,11 +42,11 @@ class Theatres{
 
 	String name;
 
-	String [] data = new String[4];
+	String [][] data = new String[4][5];
 
 
 
-	Theatres(String name, String [] data){
+	Theatres(String name, String [][] data){
 
 		this.name=name;
 
@@ -60,11 +60,13 @@ class Theatres{
 
 	void displayTheatreMDetails(int index){
 
-		String [] dataOnThatDay = data[index].split(" ");
+		String [] dataOnThatDay = data[index];
 
 		System.out.println("The Movies Available on " + dataOnThatDay[0] + " in " + name + " are:");
 
-		for(int i = 1; i < 5 ; ++i) System.out.println(i + ". " + dataOnThatDay[i]);
+		for(int i = 1; i < 5 ; ++i) {
+			System.out.println(i + ". " + dataOnThatDay[i]);
+		}
 
 	}
 
@@ -135,13 +137,13 @@ public class Main {
                 9.0, " Fantasy, Adventure"),
             new Movie("Dilwale Dulhania Le Jayenge ", "Aditya Chopra", 250,
                 new String[]{"Shah Rukh Khan ", "Kajol", "Amrish Puri","Farida Jalal ","Anupam Kher "},
-                new String[]{"Raj Malhotra", "Simran Singh", "Chaudhry Baldev Singh"," Lajwanti "Lajjo" Singh","Dharamvir Malhotra "},
+                new String[]{"Raj Malhotra", "Simran Singh", "Chaudhry Baldev Singh"," Lajwanti Lajjo Singh","Dharamvir Malhotra "},
                 9.4, " Romance, Drama"),
             new Movie("1920 London", "Tinu Suresh Desai", 224,
                 new String[]{"Sharman Joshi ", "Meera Chopra", "Vishal Karwal","Sushmita Mukherjee ","Surendra Pal ","Gajendra Chauhan "},
                 new String[]{"Jai Singh Gujjar", "Shivangi", "Veer Singh","Kesar Maasi"," Tantrik ","Rajasaab "},
                 8.1, "Horror, Mystery"),
-            new Movie("Kong: Skull Island", "Jordan Vogt-Roberts, 165,
+            new Movie("Kong: Skull Island", "Jordan Vogt-Roberts", 165,
                 new String[]{"Tom Hiddleston", "Samuel L. Jackson", "Brie Larson","John C. Reilly "," John Goodman "," Corey Hawkins"},
                 new String[]{"James Conrad", "Preston Packard", "Mason Weaver","Hank Marlow ", "Bill Randa ","Houston Brooks "},
                 8.4, "Action, Adventure, Fantasy"),
@@ -151,7 +153,7 @@ public class Main {
                 8.2, "Romance, Fantasy, Drama"),
             new Movie("The Matrix", "The Wachowskis (Lana Wachowski and Lilly Wachowski)", 183,
                 new String[]{"Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss","Hugo Weaving ","Joe Pantoliano ","Gloria Foster "},
-                new String[]{"Thomas "Neo" Anderson", "Morpheus", "Trinity","Agent Smith ","Cypher ","The Oracle "},
+                new String[]{"Thomas Neo Anderson", "Morpheus", "Trinity","Agent Smith ","Cypher ","The Oracle "},
                 8.7, "Science Fiction, Action"),
             new Movie("Baahubali: The Beginning", "S.S. Rajamouli", 193,
                 new String[]{"Prabhas ", "Rana Daggubati", "Anushka Shetty","Tamannaah ","Ramya Krishna "," Sathyaraj"},
@@ -198,13 +200,13 @@ public class Main {
 
 		System.out.println("1) 1.1.24\n2) 2.1.24\n3) 3.1.24\n4) 4.1.24");
 
-		System.out.println("Choose a suitable date: ");
+		System.out.print("Choose a suitable date: ");
 
 		int dateChoice = sc.nextInt();
 
 
 
-		System.out.println("\nMovie Screenings on "+bigData[theatreChoice-1][dateChoice-1].split(" ")[0]+theatreNames[theatreChoice-1]+":");
+		System.out.println("\nMovie Screenings on "+bigData[theatreChoice-1][dateChoice-1][0]+"at"+theatreNames[theatreChoice-1]+":");
 
 		theatres[theatreChoice - 1].displayTheatreMDetails(dateChoice - 1);
 
