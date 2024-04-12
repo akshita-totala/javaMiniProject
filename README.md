@@ -87,41 +87,41 @@ public class Main {
 
 						{"2.1.24", "Twilight", "HarryPotter", "Kong", "Matrix"},
 
-						{"3.1.24 Bahubali Joker Kong Bahubali"},
+						{"3.1.24", "Bahubali", "Joker", "Kong", "Bahubali"},
 
-						{"4.1.24 Tenet Godzilla Bahubali 1920London"}
+						{"4.1.24", "Tenet", "Godzilla", "Bahubali", "1920London"}
 					},
 
 					{
-						{"1.1.24 Tenet Joker Bahubali Matrix"},
+						{"1.1.24", "Tenet", "Joker", "Bahubali", "Matrix"},
 
-						{"2.1.24 1920London DDLJ Bahubali Matrix"},
+						{"2.1.24", "1920London", "DDLJ", "Bahubali", "Matrix"},
 
-						{"3.1.24 DDLJ Tenet HarryPotter Joker"},
+						{"3.1.24", "DDLJ", "Tenet", "HarryPotter", "Joker"},
 
-						{"4.1.24 Matrix DDLJ Bahubali DDLJ"},
+						{"4.1.24", "Matrix", "DDLJ", "Bahubali", "DDLJ"},
 
 					},
 
 					{
-						{"1.1.24 Matrix Joker Matrix Tenet"},
+						{"1.1.24", "Matrix", "Joker", "Matrix", "Tenet"},
 
-						{"2.1.24  Tenet Dune 1920London Tenet"},
+						{"2.1.24",  "Tenet", "Dune", "1920London", "Tenet"},
 
-						{"3.1.24 Matrix Godzilla Bahubali Kong"},
+						{"3.1.24", "Matrix", "Godzilla", "Bahubali", "Kong"},
 
-						{"4.1.24 Dune Bahubali Joker Tenet"},
+						{"4.1.24", "Dune", "Bahubali", "Joker", "Tenet"},
 				
 					},
 
 					{
-						{"1.1.24 Matrix DDLJ HarryPotter Twilight"},
+						{"1.1.24", "Matrix", "DDLJ", "HarryPotter", "Twilight"},
 
-						{"2.1.24 Tenet DDLJ Matrix 1920London"},
+						{"2.1.24" ,"Tenet", "DDLJ", "Matrix", "1920London"},
 
-						{"3.1.24 Tenet Twilight DDLJ Joker"},
+						{"3.1.24", "Tenet", "Twilight", "DDLJ", "Joker"},
 
-						{"4.1.24 Bahubali Godzilla Twilight Kong"}
+						{"4.1.24", "Bahubali", "Godzilla", "Twilight", "Kong"}
 					}
 
 			};
