@@ -3,7 +3,8 @@ package JavaMinproject.java;
 import java.util.Scanner;
 
 class Movie {
-	String title;
+	
+ 	String title;
 	String director;
 	int duration;
 	String[] actors;
@@ -36,7 +37,7 @@ class Movie {
 		System.out.println("Rating: " + rating);
 		System.out.println("Genre: " + genre);
 	}
-}
+	}
 
 class Theatres{
 
@@ -72,7 +73,8 @@ class Theatres{
 
 }
 //Akshita's Part:-
-abstract class seats{
+
+	abstract class seats{
 	boolean[][] seats;
 	String seatType;
 	public seats(int numrows, int numcol) {
@@ -96,7 +98,9 @@ abstract class seats{
 	}
 	public abstract void bookseat(int row, int col);
 }
+
 class gold extends seats{
+
 	public gold(int numrows, int numcol) {
 		super(numrows, numcol);
 		seatingarr(numrows, numcol);
@@ -119,7 +123,9 @@ class gold extends seats{
 	        }
 	}
 }
+
 class silver extends seats{
+
 	 public silver(int numRows, int numCols) {
 	        super(numRows, numCols);
 	        seatType = "Silver";
@@ -138,8 +144,10 @@ class silver extends seats{
         }
 	}
 }
+
 class bronze extends seats{
-	 public bronze(int numRows, int numCols) {
+	
+  	public bronze(int numRows, int numCols) {
 	        super(numRows, numCols);
 	        seatType = "Bronze";
 	    }
@@ -265,14 +273,13 @@ public class Main {
 		Theatres  theatres [] = new Theatres[4];
 		
 		String theatreNames [] = {"INOX", "Mukta Theatres", "City Pride", "AURUM"};
-  //YE
   
 		String movieNames [] = {"Harry Potter and the Philosopher's Stone","Dilwale Dulhania Le Jayenge","1920 London",
-  "Kong: Skull Island","Twilight","The Matrix","Bahubali: The Beginning","Joker","Tenet","Godzilla","Dune"};
+  	"Kong: Skull Island","Twilight","The Matrix","Bahubali: The Beginning","Joker","Tenet","Godzilla","Dune"};
 		for(int i = 0; i < 4; ++i) {
 			theatres[i] = new Theatres(theatreNames[i],bigData[i]);
 		}
-  int numrows = 8; 
+	  int numrows = 8; 
 	    int numcols = 10;
      //obj[theatre][date][movie][slot]
 		gold goldSeating[][][][]=new gold[4][4][11][4];
@@ -289,9 +296,10 @@ public class Main {
 				}
 			}
 		}
-  int rerunChoice=1;
+	  int rerunChoice=1;
 //RUN CODE FROM HERE ON
-do{
+		
+  	do{
 		System.out.println("Theatres at your service:");
 
 		for(int i = 0; i < 4; ++i) System.out.println((i + 1) + ": " + theatreNames[i]);
@@ -312,7 +320,7 @@ do{
 
 
 
-//		System.out.println("\nMovie Screenings on "+bigData[theatreChoice-1][dateChoice-1][0]+" at "+theatreNames[theatreChoice-1]+":");
+	//System.out.println("\nMovie Screenings on "+bigData[theatreChoice-1][dateChoice-1][0]+" at "+theatreNames[theatreChoice-1]+":");
 
 		theatres[theatreChoice - 1].displayTheatreMDetails(dateChoice - 1);
 		sc.nextLine();
@@ -408,8 +416,8 @@ do{
 	     } 
 		 }
   
-   System.out.println("Enter '1' to further continue booking. \nElse, enter 0 to generate Bill.");
-   rerunChoice=sc.nextInt();
+ 	System.out.println("Enter '1' to further continue booking. \nElse, enter 0 to generate Bill.");
+  	 rerunChoice=sc.nextInt();
 	    }while(rerunChoice==1);
 	       
 	   //Here comes the code for continued booking i.e.,  final billing
@@ -417,9 +425,10 @@ do{
 
 	}
 
-}
+	}
 
 class Billing {
+ 
     private static final double GOLD_PRICE = 550.0;
     private static final double SILVER_PRICE = 450.0;
     private static final double BRONZE_PRICE = 350.0;
@@ -460,5 +469,5 @@ class Billing {
 
         return totalCost; // Return total cost including tax
     }
-}
+	}
 
