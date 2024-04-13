@@ -14,57 +14,95 @@ public class Main {
 		 gold goldSeating = new gold(numrows, numcols);
 		 silver silverSeating = new silver(numrows, numcols);
 		 bronze BronzeSeating = new bronze(numrows, numcols);
-		 System.out.println("Enter Number of seats you want to book");
-		 int no=scanner.nextInt();
-		 for(int i=0;i<no;i++) {
-			 System.out.println("Gold:-");
-		 goldSeating.displayseats(0,2,0,10);	 
-		 System.out.println("Silver:-");
-		 silverSeating.displayseats(2,5,0,10);	 
-		 System.out.println("Bronze:-");
-		 BronzeSeating.displayseats(5,8,0,10);
+		 
+		 do {
+			 
 		 
 	     System.out.println("Which Zone would you like to book a seat in");
-	     System.out.println("1.Gold( Rows 1-2, Col:1-10)\n2.Silver(Rows 3-5, Col:1-10)\n3.Bronze(Rows 6-8, Col:1-10)\n");
+	     System.out.println("1.Gold( Rows 1-2, Col:1-10)\n2.Silver(Rows 3-5, Col:1-10)\n3.Bronze(Rows 6-8, Col:1-10)\n4.Seating Arrangement\n5.Exit");
 	     ch=scanner.nextInt();
-	     System.out.println("Give row and column:");
-	     int n=scanner.nextInt();
-	     int c=scanner.nextInt();
+	     int n,c;
 	     
 	     
 	     switch(ch) {
 	     case 1:
 	    	 
 		     
-		     System.out.println("Give row and column:");
-		     
+	    	 System.out.println("Give row and column:");
+		     n=scanner.nextInt();
+		     c=scanner.nextInt();
+		     if(n>=1 && n<=2 && c>=1 && c<=10) {
+		    	 goldSeating.bookseat(n-1,c-1);
+		    	 }
+		     else {
+			    	 System.out.println("Row and column entered do not come in gold zone enter again");
+			    	 System.out.println("Give row and column:");
+			    	 
+				     n=scanner.nextInt();
+				     c=scanner.nextInt();
+				     goldSeating.bookseat(n-1,c-1);
+			     }
 
-		     goldSeating.bookseat(n-1,c-1);
+		     
 		     //goldSeating.displayseats();
 		     break;
 	     
 		case 2:
-			
+			System.out.println("Give row and column:");
+		     n=scanner.nextInt();
+		     c=scanner.nextInt();
 		     
-		     System.out.println("Give row and column:");
 		     
-		     silverSeating.bookseat(n-1,c-1);
+		     if(n>=3 && n<=5 && c>=1 && c<=10) {
+		    	 silverSeating.bookseat(n-1,c-1);
+		     }
+		     else {
+		    	 System.out.println("Row and column entered do not come in silver zone enter again");
+		    	 System.out.println("Give row and column:");
+		    	 
+			     n=scanner.nextInt();
+			     c=scanner.nextInt();
+		    	 silverSeating.bookseat(n-1,c-1);
+		     }
+		     
 		     //silverSeating.displayseats();
 		     break;
 	    
 	     case 3:
-	    	
-		     
+	    	 System.out.println("Give row and column:");
+		     n=scanner.nextInt();
+		     c=scanner.nextInt();
+	    	 if(n>=6 && n<=8 && c>=1 && c<=10) {
 		     BronzeSeating.bookseat(n-1,c-1);
+	    	 }
+	    	 else {
+		    	 System.out.println("Row and column entered do not come in bronze zone enter again");
+		    	 System.out.println("Give row and column:");
+		    	 
+			     n=scanner.nextInt();
+			     c=scanner.nextInt();
+		    	 BronzeSeating.bookseat(n-1,c-1);
+		     }
 		     //BronzeSeating.displayseats();
 		     break;
-	     
+	     case 4:
+	    	 System.out.println("Gold:-");
+			 goldSeating.displayseats(0,2,0,10);	 
+			 System.out.println("Silver:-");
+			 silverSeating.displayseats(2,5,0,10);	 
+			 System.out.println("Bronze:-");
+			 BronzeSeating.displayseats(5,8,0,10);
+			 break;
+	    	 
+	    	 
+	     case 5:
+	    	 break;
 	    	 
 	     default:
 	    	 System.out.println("Invalid choice");
 	    	 break;
 	     } 
-		 }
+		 }while(ch!=5);
 	    
 	       
 	   
