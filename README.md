@@ -427,47 +427,73 @@ public class Main {
 
 	}
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 class Billing {
- 
-    private static final double GOLD_PRICE = 550.0;
-    private static final double SILVER_PRICE = 450.0;
-    private static final double BRONZE_PRICE = 350.0;
+    // Define prices for theaters, movies, and seat types
+    private static final List<String> theaters = Arrays.asList("INOX", "Mukta Theatres", "City Pride", "AURUM");
+    private static final List<String> movies = Arrays.asList("Harry Potter and the Philosopher's Stone",
+                                                              "Dilwale Dulhania Le Jayenge",
+                                                              "1920 London",
+                                                              "Kong: Skull Island",
+                                                              "Twilight",
+                                                              "The Matrix",
+                                                              "Bahubali: The Beginning",
+                                                              "Joker",
+                                                              "Tenet",
+                                                              "Godzilla",
+                                                              "Dune");
+    private static final List<String> seatTypes = Arrays.asList("Gold", "Silver", "Bronze");
+    private static final double[][] theaterPrices = {
+            {60.0, 70.0, 65.0, 80.0},  // Prices for INOX
+            {65.0, 75.0, 70.0, 85.0},  // Prices for Mukta Theatres
+            {70.0, 80.0, 75.0, 90.0},  // Prices for City Pride
+            {75.0, 85.0, 80.0, 95.0}   // Prices for AURUM
+    };
+    private static final double[] moviePrices = {50.0, 60.0, 55.0, 65.0, 55.0, 65.0, 60.0, 55.0, 70.0, 65.0, 70.0};
+    private static final double[] seatPrices = {100.0, 80.0, 60.0};
 
-    public static double calculateTotalCost(String movieName, String seatType, int numSeats) {
-        double seatPrice = 0.0;
+    public static double calculateTotalCost(int theaterIndex, int movieIndex, int seatIndex, int numSeats) {
+        double theaterPrice = theaterPrices[theaterIndex][seatIndex];
+        double moviePrice = moviePrices[movieIndex];
+        double seatPrice = seatPrices[seatIndex];
 
-        switch (seatType.toLowerCase()) {
-            case "gold":
-                seatPrice = GOLD_PRICE;
-                break;
-            case "silver":
-                seatPrice = SILVER_PRICE;
-                break;
-            case "bronze":
-                seatPrice = BRONZE_PRICE;
-                break;
-            default:
-                System.out.println("Invalid seat type");
-        }
-
-        double subtotal = seatPrice * numSeats;
+        // Calculate subtotal
+        double subtotal = (theaterPrice + moviePrice + seatPrice) * numSeats;
         double tax = subtotal * 0.19; // Assuming 19% GST
         double totalCost = subtotal + tax;
 
         // Print the bill
-        System.out.println("\n***********************************");
+        printBill(theaterIndex, movieIndex, seatIndex, numSeats, theaterPrice, moviePrice, seatPrice, subtotal, tax, totalCost);
+
+        return totalCost; // Return total cost including tax
+    }
+
+    // Method to print the bill
+    private static void printBill(int theaterIndex, int movieIndex, int seatIndex, int numSeats,
+                                   double theaterPrice, double moviePrice, double seatPrice,
+                                   double subtotal, double tax, double totalCost) {
+        String theaterName = theaters.get(theaterIndex);
+        String movieName = movies.get(movieIndex);
+        String seatType = seatTypes.get(seatIndex);
+
+        System.out.println("\n*");
         System.out.println("************ MOVIE BILL ***********");
-        System.out.println("***********************************\n");
+        System.out.println("*\n");
+        System.out.println("Theater: " + theaterName);
         System.out.println("Movie: " + movieName);
         System.out.println("Seat Type: " + seatType);
         System.out.println("Number of Seats: " + numSeats);
         System.out.println("-----------------------------------");
+        System.out.println("Theater Price: ₹" + theaterPrice);
+        System.out.println("Movie Price: ₹" + moviePrice);
+        System.out.println("Seat Price: ₹" + seatPrice);
+        System.out.println("-----------------------------------");
         System.out.println("Subtotal: ₹" + subtotal);
         System.out.println("Tax (GST 19%): ₹" + tax);
         System.out.println("Total Cost: ₹" + totalCost);
-        System.out.println("\n***********************************\n");
-
-        return totalCost; // Return total cost including tax
+        System.out.println("\n*\n");
     }
-	}
-
+}
