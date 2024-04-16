@@ -1,4 +1,4 @@
-package JavMiniproject;
+
 
 import java.util.*;
 
@@ -371,7 +371,7 @@ public class Main {
 	     } 
 		 }while(ch!=5);
     	 billobj.calculateTotalCost(theatreChoice-1,movieChoice-1,countg,counts,countb);
-		 System.out.println("Enter '1' to further continue booking. \nElse, enter 0 to generate Bill.");
+		 System.out.println("Enter '1' to further continue booking.");
 		 rerunChoice=sc.nextInt();
 		    }while(rerunChoice==1);
   		
@@ -507,20 +507,21 @@ class Billing {
     public void calculateTotalCost(int theaterIndex, int movieIndex,int countg,int counts,int countb) {
         double theaterPrice = theaterPrices[theaterIndex];
         double moviePrice = moviePrices[movieIndex];
+        
         //double seatPrice = seatPrices[seatIndex];
 
         // Calculate subtotal
         
 
         // Print the bill
-        printBill(theaterIndex, movieIndex, theaterPrice, moviePrice, seatTypes, seatPrices, tax, totalCost, countg, counts,countb);
+        printBill(theaterIndex, movieIndex, theaterPrice, moviePrice, seatTypes, seatPrices, countg, counts,countb);
 
         // Return total cost including tax
     }
 
     // Method to print the bill
     private void printBill(int theaterIndex, int movieIndex, double theaterPrice, double moviePrice, List<String> seatTypes, double[] seatPrices,
-                                   double tax, double totalCost, int countg,int counts,int countb) {
+                                   int countg,int counts,int countb) {
         String theaterName = theaters.get(theaterIndex);
         String movieName = movies.get(movieIndex);
         double tax = subtotal * 0.18; // Assuming 19% GST
