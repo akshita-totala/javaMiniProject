@@ -72,7 +72,6 @@ class Theatres{
 	}
 
 }
-//Akshita's Part:-
 
 	abstract class seats{
 	boolean[][] seats;
