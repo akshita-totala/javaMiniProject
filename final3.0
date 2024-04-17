@@ -1,8 +1,10 @@
+//importing the required libraries
+package JavaMiniproject; 
 import java.text.DecimalFormat;
 import java.util.*;
 
+//creating class movie to describe attributes of each movie object
 class Movie {
-	
  	String title;
 	String director;
 	int duration;
@@ -11,6 +13,7 @@ class Movie {
 	double rating;
 	String genre;
 
+//constructor assigning the respective attributes 
 	Movie(String title, String director, int duration, String[] actors, String[] roles, double rating, String genre) {
 		this.title = title;
 		this.director = director;
@@ -21,47 +24,40 @@ class Movie {
 		this.genre = genre;
 	}
 
+//displaying the thorough details of movies
 	public void displayMovieDetails() {
 		System.out.println("Movie: " + title);
 		System.out.println("Directed by: " + director);
 		System.out.println("Duration: " + (duration/60)+"hrs "+(duration%60) + " mins");
 		System.out.print("Actors and Roles: ");
+
 		for (int i = 0; i < actors.length; i++) {
 			System.out.print(actors[i] + " as " + roles[i]);
 			if (i < actors.length - 1) {
 				System.out.println("\t");
 			}
 		}
-		System.out.println();
+
 		System.out.println("Rating: " + rating);
 		System.out.println("Genre: " + genre);
 	}
 	}
 
+//class theater to describe attributes of each theater object
 class Theatres{
-
 	String name;
-
 	String [][] data = new String[4][5];
 
-
-
+//constructor assigning the respective attributes 
 	Theatres(String name, String [][] data){
-
 		this.name=name;
-
 		for(int i = 0; i < 4; i++)
-
 			this.data[i] = data[i];
-
 	}
 
-
-
+//class theater to describe attributes of each theater object
 	void displayTheatreMDetails(int index){
-
 		String [] dataOnThatDay = data[index];
-
 		System.out.println("\nMovie Screenings on " + dataOnThatDay[0] + " in " + name + " are:");
 
 		for(int i = 1; i < 5 ; ++i) {
@@ -69,16 +65,21 @@ class Theatres{
 		}
 
 	}
-
 }
 
-
-public class Ass12 {
+//defining main class
+public class Main {
 
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
+
+//initialising required variables and data
 		int movieChoice=0;
+	  	int rerunChoice=1;
+		int slotChoice=0;
+		int theatreChoice = 0;
+		int dateChoice=0;
 		String [][][] bigData = 
 			{
 					{
@@ -125,9 +126,14 @@ public class Ass12 {
 
 			};
 		
-
 		String [] Slots = {"9:00am to 12:00pm","12:30pm to 3:30pm","4:00pm to 7:00pm","8:00pm to 11:00pm"};
 
+		String theatreNames [] = {"INOX", "Mukta Theatres", "City Pride", "AURUM"};
+  
+		String movieNames [] = {"Harry Potter and the Philosopher's Stone","Dilwale Dulhania Le Jayenge","1920 London",
+  	"Kong: Skull Island","Twilight","The Matrix","Bahubali: The Beginning","Joker","Tenet","Godzilla","Dune"};
+
+//creating objects for movie class
 		 Movie[] movies = {
             new Movie("Harry Potter and the Philosopher's Stone", "Chris Columbus", 200,
                 new String[]{"Daniel Radcliffe", "Rupert Grint", "Emma Watson","Alan Rickman"," Maggie Smith"},
@@ -173,45 +179,47 @@ public class Ass12 {
                 new String[]{"Timothée Chalamet ", "Rebecca Ferguson", "Oscar Isaac","Josh Brolin","Stellan Skarsgård","Dave Bautista ","Zendaya"},
                 new String[]{" Paul Atreides", "Lady Jessica", "Duke Leto Atreides"," Gurney Halleck "," Baron Vladimir Harkonnen "," Glossu Rabban ","Chani "},
                 9.4, " Science Fiction, Adventure"),
-		
-        };
+	};
 
+//creating objects for theatre class
 		Theatres  theatres [] = new Theatres[4];
-		
-		String theatreNames [] = {"INOX", "Mukta Theatres", "City Pride", "AURUM"};
-  
-		String movieNames [] = {"Harry Potter and the Philosopher's Stone","Dilwale Dulhania Le Jayenge","1920 London",
-  	"Kong: Skull Island","Twilight","The Matrix","Bahubali: The Beginning","Joker","Tenet","Godzilla","Dune"};
 		for(int i = 0; i < 4; ++i) {
 			theatres[i] = new Theatres(theatreNames[i],bigData[i]);
 		}
-	  
-	  int rerunChoice=1;
-		
+
+//creating objects for billing class
+Billing billobj=new Billing();
+
+//running a do loop for user to be able to continue booking further tickets
   	do{
+
+//prompt user for choice of theatre
 		System.out.println("Theatres at your service:");
 
 		for(int i = 0; i < 4; ++i) System.out.println((i + 1) + "] " + theatreNames[i]);
 
 		System.out.print("Choose the Theatre you want to book at: ");
 
-		int theatreChoice = sc.nextInt();
+		theatreChoice = sc.nextInt();
 
+//prompt user for choice of date
 		System.out.println("\nAvailable dates for booking:");
 
 		System.out.println("1] 16.4.24\n2] 17.4.24\n3] 18.4.24\n4] 19.4.24");
 
 		System.out.print("Choose a suitable date: ");
 
-		int dateChoice = sc.nextInt();
+		dateChoice = sc.nextInt();
 
+//displaying the movies available on the chosen theatre and date
 		theatres[theatreChoice - 1].displayTheatreMDetails(dateChoice - 1);
 		sc.nextLine();
 		boolean flag=false;
+
+//repeating the prompt for movie choice until a correct choice is entered
 		do {
 			System.out.println("\nWhat are you Watching then?");
 			System.out.print("Type in your Choice: ");
-
 			String movieChoiceS = sc.nextLine();
 
 			for(int k=0;k<11;k++){
@@ -221,45 +229,45 @@ public class Ass12 {
 					break;
 				}
 			}
+
 			if(!flag) {
 				System.out.println("Incorrect Movie Name entered! Try Again!");
 			}
-		}while(!flag);
-		System.out.println("\nEnter '1' to view Movie Details.\nElse, Enter 0.");
 
+		}while(!flag);
+
+//printing the movie details on user's demand
+		System.out.println("\nEnter '1' to view Movie Details.\nElse, Enter 0.");
 		System.out.print("Your Choice: ");
 		int tempChoice=sc.nextInt();
-		//The following code will be executed on demand for movie details.. create an obj of the movie details class
-		//and call it with the given parameter
+
 		if(tempChoice==1) {
 			movies[movieChoice-1].displayMovieDetails();
 		}
 
+//prompt user for choice of slot
 		System.out.println("\nSlots Available are:");
 
 		for(int i = 0; i < 4; i++) System.out.println((i + 1) + ": " + Slots[i]);
 
 		System.out.print("Choose a Slot: ");
+		slotChoice = sc.nextInt();
 
-		int slotChoice = sc.nextInt();
-
-//Here comes the code for seats followed by (continued booking / final billing)
-//Here comes the code for continued booking i.e.,  final billing
+//initialisations for seat booking
 		 int ch;
 		 int numrows = 8; 
-	     int numcols = 10; 
-	     Billing billobj=new Billing();
+	    	 int numcols = 10; 
+	         int countg=0, counts=0, countb=0;
+
+//creating objects for classes gold, silver and bronze respectively
 		 gold goldSeating = new gold(numrows, numcols);
 		 silver silverSeating = new silver(numrows, numcols);
 		 bronze BronzeSeating = new bronze(numrows, numcols);
-		 
-	     int countg=0,counts=0,countb=0;
 
+//repeating seat booking until and unless user wants to exit
 		 do {
-			 
-		 System.out.println();
 	     System.out.println("Which Zone would you like to book a seat in?");
-	     System.out.print("1] Gold ( Rows 1-2, Col:1-10)\n2] Silver(Rows 3-5, Col:1-10)\n3] Bronze(Rows 6-8, Col:1-10)\n4] Seating Arrangement\n5] Exit\nYour Choice: ");
+	     System.out.print("1] Gold (Rows 1-2, Col:1-10)\n2] Silver(Rows 3-5, Col:1-10)\n3] Bronze(Rows 6-8, Col:1-10)\n4] Seating Arrangement\n5] Exit\nYour Choice: ");
 	     ch=sc.nextInt();
 	     int n,c;
 	     
@@ -291,7 +299,6 @@ public class Ass12 {
 			System.out.println("Give row and column:");
 		     n=sc.nextInt();
 		     c=sc.nextInt();
-		     
 		     
 		     if(n>=3 && n<=5 && c>=1 && c<=10) {
 		    	 silverSeating.bookseat(n-1,c-1);
