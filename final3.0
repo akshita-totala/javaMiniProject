@@ -90,6 +90,9 @@ public class Main {
 
 	public static void main(String[] args) {
 
+//adding a try block to handle the
+occurance of any error
+		try{
 		Scanner sc = new Scanner(System.in);
 		System.out.println("****************************************");
 		System.out.println("---------------FILMISTAAN---------------");
@@ -306,7 +309,7 @@ Billing billobj=new Billing();
 		    	// billobj.calculateTotalCost(theatreChoice-1,movieChoice-1,0);
 		    	 }
 		     else {
-			    	 System.out.println("Row and column entered do not come in gold zone enter again");
+			    	 System.out.println("Row and column entered do not come in gold zone. Enter Again!");
 			    	 System.out.println("Give row and column:");
 			    	 
 				     n=sc.nextInt();
@@ -328,7 +331,7 @@ Billing billobj=new Billing();
 		    	// billobj.calculateTotalCost(theatreChoice-1,movieChoice-1,1);
 		     }
 		     else {
-		    	 System.out.println("Row and column entered do not come in silver zone enter again");
+		    	 System.out.println("Row and column entered do not come in silver zone. Enter Again!");
 		    	 System.out.println("Give row and column:");
 		    	 
 			     n=sc.nextInt();
@@ -351,7 +354,7 @@ Billing billobj=new Billing();
 
 	    	 }
 	    	 else {
-		    	 System.out.println("Row and column entered do not come in bronze zone enter again");
+		    	 System.out.println("Row and column entered do not come in bronze zone. Enter Again!");
 		    	 System.out.println("Give row and column:");
 		    	 
 			     n=sc.nextInt();
@@ -382,15 +385,15 @@ Billing billobj=new Billing();
 	     System.out.println("\n");
 		 }while(ch!=5);
   	 billobj.calculateTotalCost(theatreChoice-1,movieChoice-1,countg,counts,countb);
-		 System.out.println("Thank You.Enter '1' to further continue booking.");
+		 System.out.println("THANK YOU!\nENJOY YOUR MOVIE!\nEnter '1' to further continue booking.\nElse, Enter 0.");
 		 rerunChoice=sc.nextInt();
-		    }while(rerunChoice==1);
-		
-		       
+		    }while(rerunChoice!=0);
+	System.out.println("SEE YOU AGAIN FILMISTANI;)");
+	}
+catch (Exception e){
+		System.out.println("Oops! Some error occurred!");
 	}
 }
-
-	  
 
 abstract class seats{
 	boolean[][] seats;
