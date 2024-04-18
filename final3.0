@@ -394,8 +394,9 @@ catch (Exception e){
 		System.out.println("Oops! Some error occurred!");
 	}
 }
-
+//code for abstract class
 abstract class seats{
+//declaration 
 	boolean[][] seats;
 	String seatType;
 	public seats(int numrows, int numcol) {
@@ -404,7 +405,7 @@ abstract class seats{
 		seats = new boolean[numrows][numcol];
 	}
 	void displayseats(int sr,int r,int sc,int co ){
-		
+		//code to display the sitting arrangement 
 		for(int i=sr;i< r;i++) {
 			for(int j=sc;j<co;j++) {
 				
@@ -431,7 +432,7 @@ class gold extends seats{
 	}
 	public void bookseat(int row, int col) {
 		
-		 
+		//if user enters rows and columns for a booked seat 
 		 if (seats[row][col]) {
 	            System.out.println("Gold seat already booked. Please select another seat.");
 	        } 
@@ -439,6 +440,7 @@ class gold extends seats{
 	            seats[row][col] = true;
 	            System.out.println("Gold seat booked !");
 	        }
+//allowing user to re-enter the seat number incase wrong row and column numbers are entered
 		 if (row < 0 || row >= seats.length || col < 0 || col >= seats[0].length) {
 	            System.out.println("Invalid row or column number. Please try again.");
 	            return;
@@ -451,6 +453,7 @@ class silver extends seats{
 	        seatingarr(numrows, numcol);
 	        seatType = "Silver";
 	    }
+//allowing user to re-enter the seat number incase wrong row and column numbers are entered
 	public void bookseat(int row, int col) {
 		if (row < 0 || row >= seats.length || col < 0 || col >= seats[0].length) {
           System.out.println("Invalid row or column number. Please try again.");
@@ -472,6 +475,7 @@ class bronze extends seats{
 	        seatType = "Bronze";
 	    }
 	public void bookseat(int row, int col) {
+//allowing user to re-enter the seat number incase wrong row and column numbers are entered
 		if (row < 0 || row >= seats.length || col < 0 || col >= seats[0].length) {
        System.out.println("Invalid row or column number. Please try again.");
        return;
@@ -503,13 +507,15 @@ class Billing {
           "Tenet",
           "Godzilla",
           "Dune"};
+//define prices for seat according to their type
   private static final String[] seatTypes = {"Gold", "Silver", "Bronze"};
+//define prices for different theaters
   private static final double[] theaterPrices = {55, 65, 80, 60};  // Prices for AURUM
-
+//define prices for different movies
   private static final double[] moviePrices = {50.0, 60.0, 55.0, 65.0, 55.0, 65.0, 60.0, 55.0, 70.0, 65.0, 70.0};
   private static final double[] seatPrices = {100.0, 80.0, 60.0};
   double subtotal = 0;
-
+//method to calculate the total cost of the movie tickets
   public void calculateTotalCost(int theaterIndex, int movieIndex, int countg, int counts, int countb) {
       double theaterPrice = theaterPrices[theaterIndex];
       double moviePrice = moviePrices[movieIndex];
@@ -528,7 +534,7 @@ String theaterName = theaters[theaterIndex];
 String movieName = movies[movieIndex];
 double tax = 0; // Assuming 18% GST
 double totalCost = 0;
-
+// the total bill including gst
 double gtotal = 0, stotal = 0, btotal = 0;
 int boxWidth = 60; // Width of the box
 
