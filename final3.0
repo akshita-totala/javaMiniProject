@@ -91,7 +91,10 @@ public class Main {
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
-
+		System.out.println("****************************************");
+		System.out.println("---------------FILMISTAAN---------------");
+		System.out.println("****************************************");
+		System.out.print("\n");
 //initialising required variables and data
 		int movieChoice=0;
 	  	int rerunChoice=1;
@@ -379,7 +382,7 @@ Billing billobj=new Billing();
 	     System.out.println("\n");
 		 }while(ch!=5);
   	 billobj.calculateTotalCost(theatreChoice-1,movieChoice-1,countg,counts,countb);
-		 System.out.println("Enter '1' to further continue booking.");
+		 System.out.println("Thank You.Enter '1' to further continue booking.");
 		 rerunChoice=sc.nextInt();
 		    }while(rerunChoice==1);
 		
@@ -543,17 +546,17 @@ System.out.println();
 // Print details for each seat type
 if (countg > 0) {
 System.out.println("Seat Type: " + seatTypes[0]);
-System.out.println("\t" + countg + "\t" + decimalFormat.format(gtotal = (theaterPrice + moviePrice + seatPrices[0])));
+System.out.println("Quantity:" + countg + "   Price of each:" + decimalFormat.format(gtotal = (theaterPrice + moviePrice + seatPrices[0])));
 System.out.println("-----------------------------------------------------------");
 }
 if (counts > 0) {
 System.out.println("Seat Type: " + seatTypes[1]);
-System.out.println("\t" + counts + "\t" + decimalFormat.format(stotal = (theaterPrice + moviePrice + seatPrices[1])));
+System.out.println("Quantity:" + counts + "   Price of each:" + decimalFormat.format(stotal = (theaterPrice + moviePrice + seatPrices[1])));
 System.out.println("-----------------------------------------------------------");
 }
 if (countb > 0) {
 System.out.println("Seat Type: " + seatTypes[2]);
-System.out.println("\t" + countb + "\t" + decimalFormat.format(btotal = ((theaterPrice + moviePrice + seatPrices[2]))));
+System.out.println("Quantity:" + countb + "   Price of each:" + decimalFormat.format(btotal = ((theaterPrice + moviePrice + seatPrices[2]))));
 System.out.println("-----------------------------------------------------------");
 }
 
