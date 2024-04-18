@@ -1,11 +1,13 @@
+
+
 //importing the required libraries
-package JavaMiniproject; 
+
 import java.text.DecimalFormat;
 import java.util.*;
 
 //creating class movie to describe attributes of each movie object
 class Movie {
- 	String title;
+	String title;
 	String director;
 	int duration;
 	String[] actors;
@@ -26,21 +28,37 @@ class Movie {
 
 //displaying the thorough details of movies
 	public void displayMovieDetails() {
-		System.out.println("Movie: " + title);
-		System.out.println("Directed by: " + director);
-		System.out.println("Duration: " + (duration/60)+"hrs "+(duration%60) + " mins");
-		System.out.print("Actors and Roles: ");
+	    int boxWidth = 60; // Width of the box
+	    int boxHeight = 11; // Height of the box
 
-		for (int i = 0; i < actors.length; i++) {
-			System.out.print(actors[i] + " as " + roles[i]);
-			if (i < actors.length - 1) {
-				System.out.println("\t");
-			}
-		}
+	    // Print the top border of the box
+	    for (int i = 0; i < boxWidth; i++) {
+	        System.out.print("*");
+	    }
+	    System.out.println(); // Move to the next line
 
-		System.out.println("Rating: " + rating);
-		System.out.println("Genre: " + genre);
+	    // Print the movie details inside the box
+	    System.out.println("* Movie: " + title);
+	    System.out.println("* Directed by: " + director);
+	    System.out.println("* Duration: " + (duration / 60) + "hrs " + (duration % 60) + " mins");
+	    System.out.print("* Actors and Roles: ");
+	    for (int i = 0; i < actors.length; i++) {
+	        System.out.print(actors[i] + " as " + roles[i] + "\n*\t");
+	        if (i < actors.length - 1) {
+	            System.out.print(", ");
+	        }
+	    }
+	    System.out.println();
+	    System.out.println("* Rating: " + rating);
+	    System.out.println("* Genre: " + genre);
+
+	    // Print the bottom border of the box
+	    for (int i = 0; i < boxWidth; i++) {
+	        System.out.print("*");
+	    }
+	    System.out.println(); // Move to the next line
 	}
+
 	}
 
 //class theater to describe attributes of each theater object
@@ -129,56 +147,56 @@ public class Main {
 		String [] Slots = {"9:00am to 12:00pm","12:30pm to 3:30pm","4:00pm to 7:00pm","8:00pm to 11:00pm"};
 
 		String theatreNames [] = {"INOX", "Mukta Theatres", "City Pride", "AURUM"};
-  
+
 		String movieNames [] = {"Harry Potter and the Philosopher's Stone","Dilwale Dulhania Le Jayenge","1920 London",
-  	"Kong: Skull Island","Twilight","The Matrix","Bahubali: The Beginning","Joker","Tenet","Godzilla","Dune"};
+	"Kong: Skull Island","Twilight","The Matrix","Bahubali: The Beginning","Joker","Tenet","Godzilla","Dune"};
 
 //creating objects for movie class
 		 Movie[] movies = {
-            new Movie("Harry Potter and the Philosopher's Stone", "Chris Columbus", 200,
-                new String[]{"Daniel Radcliffe", "Rupert Grint", "Emma Watson","Alan Rickman"," Maggie Smith"},
-                new String[]{"Harry Potter", "Ron Weasley", "Hermione Granger"," Severus Snape ","Minerva McGonagall "},
-                9.0, " Fantasy, Adventure"),
-            new Movie("Dilwale Dulhania Le Jayenge", "Aditya Chopra", 250,
-                new String[]{"Shah Rukh Khan ", "Kajol", "Amrish Puri","Farida Jalal ","Anupam Kher "},
-                new String[]{"Raj Malhotra", "Simran Singh", "Chaudhry Baldev Singh"," Lajwanti Lajjo Singh","Dharamvir Malhotra "},
-                9.4, " Romance, Drama"),
-            new Movie("1920 London", "Tinu Suresh Desai", 224,
-                new String[]{"Sharman Joshi ", "Meera Chopra", "Vishal Karwal","Sushmita Mukherjee ","Surendra Pal ","Gajendra Chauhan "},
-                new String[]{"Jai Singh Gujjar", "Shivangi", "Veer Singh","Kesar Maasi"," Tantrik ","Rajasaab "},
-                8.1, "Horror, Mystery"),
-            new Movie("Kong: Skull Island", "Jordan Vogt-Roberts", 165,
-                new String[]{"Tom Hiddleston", "Samuel L. Jackson", "Brie Larson","John C. Reilly "," John Goodman "," Corey Hawkins"},
-                new String[]{"James Conrad", "Preston Packard", "Mason Weaver","Hank Marlow ", "Bill Randa ","Houston Brooks "},
-                8.4, "Action, Adventure, Fantasy"),
-            new Movie("Twilight", "Catherine Hardwicke", 153,
-                new String[]{"Kristen Stewart", "Robert Pattinson ", "Taylor Lautner"," Peter Facinelli ","Ashley Gree ","Billy Burke "},
-                new String[]{"Bella Swan", "Edward Cullen", "Jacob Black","Carlisle Cullen ","Alice Cullen "," Charlie Swan"},
-                8.2, "Romance, Fantasy, Drama"),
-            new Movie("The Matrix", "The Wachowskis (Lana Wachowski and Lilly Wachowski)", 183,
-                new String[]{"Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss","Hugo Weaving ","Joe Pantoliano ","Gloria Foster "},
-                new String[]{"Thomas Neo Anderson", "Morpheus", "Trinity","Agent Smith ","Cypher ","The Oracle "},
-                8.7, "Science Fiction, Action"),
-            new Movie("Bahubali: The Beginning", "S.S. Rajamouli", 193,
-                new String[]{"Prabhas ", "Rana Daggubati", "Anushka Shetty","Tamannaah ","Ramya Krishna "," Sathyaraj"},
-                new String[]{"Amarendra Baahubali and Mahendra Baahubali", "Bhallaladeva", "Maharani Devasena","Avanthika ","Sivagami Devi "," Kattappa"},
-                8.0, "Epic Historical Fiction, Action"),
+          new Movie("Harry Potter and the Philosopher's Stone", "Chris Columbus", 200,
+              new String[]{"Daniel Radcliffe", "Rupert Grint", "Emma Watson","Alan Rickman"," Maggie Smith"},
+              new String[]{"Harry Potter", "Ron Weasley", "Hermione Granger"," Severus Snape ","Minerva McGonagall "},
+              9.0, " Fantasy, Adventure"),
+          new Movie("Dilwale Dulhania Le Jayenge", "Aditya Chopra", 250,
+              new String[]{"Shah Rukh Khan ", "Kajol", "Amrish Puri","Farida Jalal ","Anupam Kher "},
+              new String[]{"Raj Malhotra", "Simran Singh", "Chaudhry Baldev Singh"," Lajwanti Lajjo Singh","Dharamvir Malhotra "},
+              9.4, " Romance, Drama"),
+          new Movie("1920 London", "Tinu Suresh Desai", 224,
+              new String[]{"Sharman Joshi ", "Meera Chopra", "Vishal Karwal","Sushmita Mukherjee ","Surendra Pal ","Gajendra Chauhan "},
+              new String[]{"Jai Singh Gujjar", "Shivangi", "Veer Singh","Kesar Maasi"," Tantrik ","Rajasaab "},
+              8.1, "Horror, Mystery"),
+          new Movie("Kong: Skull Island", "Jordan Vogt-Roberts", 165,
+              new String[]{"Tom Hiddleston", "Samuel L. Jackson", "Brie Larson","John C. Reilly "," John Goodman "," Corey Hawkins"},
+              new String[]{"James Conrad", "Preston Packard", "Mason Weaver","Hank Marlow ", "Bill Randa ","Houston Brooks "},
+              8.4, "Action, Adventure, Fantasy"),
+          new Movie("Twilight", "Catherine Hardwicke", 153,
+              new String[]{"Kristen Stewart", "Robert Pattinson ", "Taylor Lautner"," Peter Facinelli ","Ashley Gree ","Billy Burke "},
+              new String[]{"Bella Swan", "Edward Cullen", "Jacob Black","Carlisle Cullen ","Alice Cullen "," Charlie Swan"},
+              8.2, "Romance, Fantasy, Drama"),
+          new Movie("The Matrix", "The Wachowskis (Lana Wachowski and Lilly Wachowski)", 183,
+              new String[]{"Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss","Hugo Weaving ","Joe Pantoliano ","Gloria Foster "},
+              new String[]{"Thomas Neo Anderson", "Morpheus", "Trinity","Agent Smith ","Cypher ","The Oracle "},
+              8.7, "Science Fiction, Action"),
+          new Movie("Bahubali: The Beginning", "S.S. Rajamouli", 193,
+              new String[]{"Prabhas ", "Rana Daggubati", "Anushka Shetty","Tamannaah ","Ramya Krishna "," Sathyaraj"},
+              new String[]{"Amarendra Baahubali and Mahendra Baahubali", "Bhallaladeva", "Maharani Devasena","Avanthika ","Sivagami Devi "," Kattappa"},
+              8.0, "Epic Historical Fiction, Action"),
 	    new Movie("Joker", "Todd Phillips", 210,
-                new String[]{"Joaquin Phoenix ", "Robert De Niro ", "Zazie Beetz","Frances Conroy ","Brett Cullen "," Shea Whigham"},
-                new String[]{"Arthur Fleck / Joker", "Murray Franklin", "Sophie Dumond","Penny Fleck ","Thomas Wayne "," Detective Burke"},
-               6.0, "Psychological Thriller, Drama"),
+              new String[]{"Joaquin Phoenix ", "Robert De Niro ", "Zazie Beetz","Frances Conroy ","Brett Cullen "," Shea Whigham"},
+              new String[]{"Arthur Fleck / Joker", "Murray Franklin", "Sophie Dumond","Penny Fleck ","Thomas Wayne "," Detective Burke"},
+             6.0, "Psychological Thriller, Drama"),
 	    new Movie("Tenet", " Christopher Nolan", 180,
-                new String[]{"John David Washington  ", "Robert Pattinson", "Elizabeth Debicki ","Kenneth Branagh ","Michael Caine "," Aaron Taylor-Johnson"},
-                new String[]{"The Protagonist", "Neil", "Kat", "Andrei Sator ","Sir Michael Crosby ","  Ives"},
-                7.0, "Action, Sci-Fi, Thriller"),
+              new String[]{"John David Washington  ", "Robert Pattinson", "Elizabeth Debicki ","Kenneth Branagh ","Michael Caine "," Aaron Taylor-Johnson"},
+              new String[]{"The Protagonist", "Neil", "Kat", "Andrei Sator ","Sir Michael Crosby ","  Ives"},
+              7.0, "Action, Sci-Fi, Thriller"),
 	    new Movie("Godzilla", "Gareth Edwards", 120,
-                new String[]{"Aaron Taylor-Johnson ", "Bryan Cranston", "Ken Watanabe","Elizabeth Olsen","Sally Hawkins  "},
-                new String[]{"Ford Brody", "Joe Brody", "Dr. Ishiro Serizawa"," Elle Brody "," Dr. Vivienne Graham "},
-                7.3, "Action, Science Fiction"),
+              new String[]{"Aaron Taylor-Johnson ", "Bryan Cranston", "Ken Watanabe","Elizabeth Olsen","Sally Hawkins  "},
+              new String[]{"Ford Brody", "Joe Brody", "Dr. Ishiro Serizawa"," Elle Brody "," Dr. Vivienne Graham "},
+              7.3, "Action, Science Fiction"),
 	    new Movie("Dune", "Denis Villeneuve", 190,
-                new String[]{"Timothée Chalamet ", "Rebecca Ferguson", "Oscar Isaac","Josh Brolin","Stellan Skarsgård","Dave Bautista ","Zendaya"},
-                new String[]{" Paul Atreides", "Lady Jessica", "Duke Leto Atreides"," Gurney Halleck "," Baron Vladimir Harkonnen "," Glossu Rabban ","Chani "},
-                9.4, " Science Fiction, Adventure"),
+              new String[]{"Timothée Chalamet ", "Rebecca Ferguson", "Oscar Isaac","Josh Brolin","Stellan Skarsgård","Dave Bautista ","Zendaya"},
+              new String[]{" Paul Atreides", "Lady Jessica", "Duke Leto Atreides"," Gurney Halleck "," Baron Vladimir Harkonnen "," Glossu Rabban ","Chani "},
+              9.4, " Science Fiction, Adventure"),
 	};
 
 //creating objects for theatre class
@@ -191,7 +209,7 @@ public class Main {
 Billing billobj=new Billing();
 
 //running a do loop for user to be able to continue booking further tickets
-  	do{
+	do{
 
 //prompt user for choice of theatre
 		System.out.println("Theatres at your service:");
@@ -252,7 +270,7 @@ Billing billobj=new Billing();
 
 		System.out.print("Choose a Slot: ");
 		slotChoice = sc.nextInt();
-
+		System.out.println("\n");
 //initialisations for seat booking
 		 int ch;
 		 int numrows = 8; 
@@ -266,6 +284,7 @@ Billing billobj=new Billing();
 
 //repeating seat booking until and unless user wants to exit
 		 do {
+			 
 	     System.out.println("Which Zone would you like to book a seat in?");
 	     System.out.print("1] Gold (Rows 1-2, Col:1-10)\n2] Silver(Rows 3-5, Col:1-10)\n3] Bronze(Rows 6-8, Col:1-10)\n4] Seating Arrangement\n5] Exit\nYour Choice: ");
 	     ch=sc.nextInt();
@@ -357,12 +376,13 @@ Billing billobj=new Billing();
 	    	 System.out.println("Invalid choice");
 	    	 break;
 	     } 
+	     System.out.println("\n");
 		 }while(ch!=5);
-    	 billobj.calculateTotalCost(theatreChoice-1,movieChoice-1,countg,counts,countb);
+  	 billobj.calculateTotalCost(theatreChoice-1,movieChoice-1,countg,counts,countb);
 		 System.out.println("Enter '1' to further continue booking.");
 		 rerunChoice=sc.nextInt();
 		    }while(rerunChoice==1);
-  		
+		
 		       
 	}
 }
@@ -427,16 +447,16 @@ class silver extends seats{
 	    }
 	public void bookseat(int row, int col) {
 		if (row < 0 || row >= seats.length || col < 0 || col >= seats[0].length) {
-            System.out.println("Invalid row or column number. Please try again.");
-            return;
-        }
+          System.out.println("Invalid row or column number. Please try again.");
+          return;
+      }
 
-        if (seats[row][col]) {
-            System.out.println("Silver seat already booked. Please select another seat.");
-        } else {
-            seats[row][col] = true;
-            System.out.println("Silver seat booked!");
-        }
+      if (seats[row][col]) {
+          System.out.println("Silver seat already booked. Please select another seat.");
+      } else {
+          seats[row][col] = true;
+          System.out.println("Silver seat booked!");
+      }
 	}
 }
 class bronze extends seats{
@@ -447,95 +467,113 @@ class bronze extends seats{
 	    }
 	public void bookseat(int row, int col) {
 		if (row < 0 || row >= seats.length || col < 0 || col >= seats[0].length) {
-         System.out.println("Invalid row or column number. Please try again.");
-         return;
-     }
+       System.out.println("Invalid row or column number. Please try again.");
+       return;
+   }
 
-     if (seats[row][col]) {
-         System.out.println("Bronze seat already booked. Please select another seat.");
-     } else {
-         seats[row][col] = true;
-         System.out.println("Bronze seat booked!");
-     }
+   if (seats[row][col]) {
+       System.out.println("Bronze seat already booked. Please select another seat.");
+   } else {
+       seats[row][col] = true;
+       System.out.println("Bronze seat booked!");
+   }
 	}
 	
 }
 		   
 
 
- class Billing {
-    // Define prices for theaters, movies, and seat types
-    private static final String theaters[] = {"INOX", "Mukta Theatres", "City Pride", "AURUM"};
-    private static final String movies[] = {"Harry Potter and the Philosopher's Stone",
-            "Dilwale Dulhania Le Jayenge",
-            "1920 London",
-            "Kong: Skull Island",
-            "Twilight",
-            "The Matrix",
-            "Bahubali: The Beginning",
-            "Joker",
-            "Tenet",
-            "Godzilla",
-            "Dune"};
-    private static final String[] seatTypes = {"Gold", "Silver", "Bronze"};
-    private static final double[] theaterPrices = {55, 65, 80, 60};  // Prices for AURUM
+class Billing {
+  // Define prices for theaters, movies, and seat types
+  private static final String theaters[] = {"INOX", "Mukta Theatres", "City Pride", "AURUM"};
+  private static final String movies[] = {"Harry Potter and the Philosopher's Stone",
+          "Dilwale Dulhania Le Jayenge",
+          "1920 London",
+          "Kong: Skull Island",
+          "Twilight",
+          "The Matrix",
+          "Bahubali: The Beginning",
+          "Joker",
+          "Tenet",
+          "Godzilla",
+          "Dune"};
+  private static final String[] seatTypes = {"Gold", "Silver", "Bronze"};
+  private static final double[] theaterPrices = {55, 65, 80, 60};  // Prices for AURUM
 
-    private static final double[] moviePrices = {50.0, 60.0, 55.0, 65.0, 55.0, 65.0, 60.0, 55.0, 70.0, 65.0, 70.0};
-    private static final double[] seatPrices = {100.0, 80.0, 60.0};
-    double subtotal = 0;
+  private static final double[] moviePrices = {50.0, 60.0, 55.0, 65.0, 55.0, 65.0, 60.0, 55.0, 70.0, 65.0, 70.0};
+  private static final double[] seatPrices = {100.0, 80.0, 60.0};
+  double subtotal = 0;
 
-    public void calculateTotalCost(int theaterIndex, int movieIndex, int countg, int counts, int countb) {
-        double theaterPrice = theaterPrices[theaterIndex];
-        double moviePrice = moviePrices[movieIndex];
+  public void calculateTotalCost(int theaterIndex, int movieIndex, int countg, int counts, int countb) {
+      double theaterPrice = theaterPrices[theaterIndex];
+      double moviePrice = moviePrices[movieIndex];
 
-        // Print the bill
-        printBill(theaterIndex, movieIndex, theaterPrice, moviePrice, seatTypes, seatPrices, countg, counts, countb);
+      // Print the bill
+      printBill(theaterIndex, movieIndex, theaterPrice, moviePrice, seatTypes, seatPrices, countg, counts, countb);
 
-        // Return total cost including tax
-    }
+      // Return total cost including tax
+  }
 
-    // Method to print the bill
-    private void printBill(int theaterIndex, int movieIndex, double theaterPrice, double moviePrice, String[] seatTypes, double[] seatPrices,
-                           int countg, int counts, int countb) {
-        DecimalFormat decimalFormat = new DecimalFormat("#.##");
-        String theaterName = theaters[theaterIndex];
-        String movieName = movies[movieIndex];
-        double tax = 0; // Assuming 18% GST
-        double totalCost = 0;
+  // Method to print the bill
+  private void printBill(int theaterIndex, int movieIndex, double theaterPrice, double moviePrice, String[] seatTypes, double[] seatPrices,
+          int countg, int counts, int countb) {
+DecimalFormat decimalFormat = new DecimalFormat("#.##");
+String theaterName = theaters[theaterIndex];
+String movieName = movies[movieIndex];
+double tax = 0; // Assuming 18% GST
+double totalCost = 0;
 
-        double gtotal = 0, stotal = 0, btotal = 0;
-        System.out.println("\n*");
-        System.out.println("************ MOVIE BILL ***********");
-        System.out.println("*\n");
-        System.out.println("Theater: " + theaterName);
-        System.out.println("Movie: " + movieName);
-		System.out.println();
-        if (countg > 0) {
-            System.out.println("Seat Type: " + seatTypes[0]);
-            System.out.print("\t" + countg);
-            System.out.println("\t" + decimalFormat.format(gtotal = (theaterPrice + moviePrice + seatPrices[0])));
-            System.out.println("-----------------------------------");
-        }
-        if (counts > 0) {
-            System.out.println("Seat Type: " + seatTypes[1]);
-            System.out.print("\t" + counts);
-            System.out.println("\t" + decimalFormat.format(stotal = (theaterPrice + moviePrice + seatPrices[1])));
-            System.out.println("-----------------------------------");
-        }
-        if (countb > 0) {
-            System.out.println("Seat Type: " + seatTypes[2]);
-            System.out.print("\t" + countb);
-            System.out.println("\t" + decimalFormat.format(btotal = ((theaterPrice + moviePrice + seatPrices[2]))));
-            System.out.println("-----------------------------------");
-        }
-		System.out.println();
-        subtotal = ((stotal*counts) + (gtotal*countg) + (btotal*countb));
-        tax = (subtotal * 0.18); // 18% GST
-        totalCost = subtotal + tax;
-        System.out.println("Subtotal     : ₹ " + decimalFormat.format(subtotal));
-        System.out.println("Tax (GST 18%): ₹ " + decimalFormat.format(tax));
-        System.out.println("Total Cost   : ₹ " + decimalFormat.format(totalCost));
-		System.out.println();
-        System.out.println("\n-----------------*-----------------\n");
-    }
+double gtotal = 0, stotal = 0, btotal = 0;
+int boxWidth = 60; // Width of the box
+
+// Print the top border of the box
+for (int i = 0; i < boxWidth; i++) {
+System.out.print("*");
+}
+System.out.println(); // Move to the next line
+
+System.out.println("----------------------- MOVIE - BILL -----------------------");
+System.out.println("************************************************************");
+
+// Print the details inside the box
+System.out.println("Theater: " + theaterName);
+System.out.println("Movie: " + movieName);
+System.out.println();
+
+// Print details for each seat type
+if (countg > 0) {
+System.out.println("Seat Type: " + seatTypes[0]);
+System.out.println("\t" + countg + "\t" + decimalFormat.format(gtotal = (theaterPrice + moviePrice + seatPrices[0])));
+System.out.println("-----------------------------------------------------------");
+}
+if (counts > 0) {
+System.out.println("Seat Type: " + seatTypes[1]);
+System.out.println("\t" + counts + "\t" + decimalFormat.format(stotal = (theaterPrice + moviePrice + seatPrices[1])));
+System.out.println("-----------------------------------------------------------");
+}
+if (countb > 0) {
+System.out.println("Seat Type: " + seatTypes[2]);
+System.out.println("\t" + countb + "\t" + decimalFormat.format(btotal = ((theaterPrice + moviePrice + seatPrices[2]))));
+System.out.println("-----------------------------------------------------------");
+}
+
+System.out.println();
+// Calculate subtotal, tax, and total cost
+subtotal = ((stotal * counts) + (gtotal * countg) + (btotal * countb));
+tax = (subtotal * 0.18); // 18% GST
+totalCost = subtotal + tax;
+
+// Print subtotal, tax, and total cost
+System.out.println("Subtotal     : ₹ " + decimalFormat.format(subtotal));
+System.out.println("Tax (GST 18%): ₹ " + decimalFormat.format(tax));
+System.out.println("Total Cost   : ₹ " + decimalFormat.format(totalCost));
+System.out.println();
+
+// Print the bottom border of the box
+for (int i = 0; i < boxWidth; i++) {
+System.out.print("*");
+}
+System.out.println(); // Move to the next line
+}
+
 }
