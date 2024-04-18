@@ -1,0 +1,139 @@
+****************************************
+---------------FILMISTAAN---------------
+****************************************
+
+Theatres at your service:
+1] INOX
+2] Mukta Theatres
+3] City Pride
+4] AURUM
+Choose the Theatre you want to book at: 1
+
+Available dates for booking:
+1] 16.4.24
+2] 17.4.24
+3] 18.4.24
+4] 19.4.24
+Choose a suitable date: 4
+
+Movie Screenings on 19.4.24 in INOX are:
+1] Tenet
+2] Godzilla
+3] Bahubali: The Beginning
+4] 1920 London
+
+What are you Watching then?
+Type in your Choice: Tenet
+
+Enter '1' to view Movie Details.
+Else, Enter 0.
+Your Choice: 1
+************************************************************
+* Movie: Tenet
+* Directed by:  Christopher Nolan
+* Duration: 3hrs 0 mins
+* Actors and Roles: John David Washington   as The Protagonist
+*	          , Robert Pattinson as Neil
+*	          , Elizabeth Debicki  as Kat
+*	          , Kenneth Branagh  as Andrei Sator 
+*	          , Michael Caine  as Sir Michael Crosby 
+*	          ,  Aaron Taylor-Johnson as   Ives
+*	
+* Rating: 7.0
+* Genre: Action, Sci-Fi, Thriller
+************************************************************
+
+Slots Available are:
+1: 9:00am to 12:00pm
+2: 12:30pm to 3:30pm
+3: 4:00pm to 7:00pm
+4: 8:00pm to 11:00pm
+Choose a Slot: 3
+
+
+Which Zone would you like to book a seat in?
+1] Gold (Rows 1-2, Col:1-10)
+2] Silver(Rows 3-5, Col:1-10)
+3] Bronze(Rows 6-8, Col:1-10)
+4] Seating Arrangement
+5] Exit
+Your Choice: 1
+Give row and column:
+3
+4
+Row and column entered do not come in gold zone enter again
+Give row and column:
+1
+5
+Gold seat booked !
+
+
+Which Zone would you like to book a seat in?
+1] Gold (Rows 1-2, Col:1-10)
+2] Silver(Rows 3-5, Col:1-10)
+3] Bronze(Rows 6-8, Col:1-10)
+4] Seating Arrangement
+5] Exit
+Your Choice: 2
+Give row and column:
+4
+7
+Silver seat booked!
+
+
+Which Zone would you like to book a seat in?
+1] Gold (Rows 1-2, Col:1-10)
+2] Silver(Rows 3-5, Col:1-10)
+3] Bronze(Rows 6-8, Col:1-10)
+4] Seating Arrangement
+5] Exit
+Your Choice: 4
+Gold:-
+1	1	1	1	0	1	1	1	1	1	
+
+1	1	1	1	1	1	1	1	1	1	
+
+Silver:-
+1	1	1	1	1	1	1	1	1	1	
+
+1	1	1	1	1	1	0	1	1	1	
+
+1	1	1	1	1	1	1	1	1	1	
+
+Bronze:-
+1	1	1	1	1	1	1	1	1	1	
+
+1	1	1	1	1	1	1	1	1	1	
+
+1	1	1	1	1	1	1	1	1	1	
+
+
+
+Which Zone would you like to book a seat in?
+1] Gold (Rows 1-2, Col:1-10)
+2] Silver(Rows 3-5, Col:1-10)
+3] Bronze(Rows 6-8, Col:1-10)
+4] Seating Arrangement
+5] Exit
+Your Choice: 5
+
+
+************************************************************
+----------------------- MOVIE - BILL -----------------------
+************************************************************
+Theater: INOX
+Movie: Tenet
+
+Seat Type: Gold
+Quantity:1   Price of each:225
+-----------------------------------------------------------
+Seat Type: Silver
+Quantity:1   Price of each:205
+-----------------------------------------------------------
+
+Subtotal     : ₹ 430
+Tax (GST 18%): ₹ 77.4
+Total Cost   : ₹ 507.4
+
+************************************************************
+Thank You.Enter '1' to further continue booking.
